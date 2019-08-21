@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/api/sentences.js"
+    },
+    {
+      "src": "/words[/]*(?<length>[^/]*)",
+      "dest": "/api/words.js?length=$length"
+    },
+    {
+      "src": "/sentences[/]*(?<length>[^/]*)",
+      "dest": "/api/sentences.js?length=$length"
+    },
+    {
+      "src": "/paragraphs[/]*(?<length>[^/]*)",
+      "dest": "/api/paragraphs.js?length=$length"
+    }
+  ],
+  "builds": [{
+    "src": "api/*.js",
+    "use": "@now/node"
+  }]
+}
